@@ -1,0 +1,32 @@
+.bozz-c-CreateZone {
+
+    margin-top: 90px;
+    
+
+    form {
+        max-width: 500px;
+        margin: 40px auto;
+    }
+
+    &-comn {
+        overflow: hidden;
+        height: 0;
+
+
+        &-title {
+            margin-bottom: 20px;
+        }
+    }
+
+    &-btnNext {
+
+        &.showNextSection {
+            display: none;
+            & + .bozz-c-CreateZone-comn {
+                height: auto;
+                overflow: inherit;
+            }
+        }
+    }
+    
+}

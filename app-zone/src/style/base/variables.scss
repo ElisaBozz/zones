@@ -1,0 +1,27 @@
+// fonts
+$font_family_base: Montserrat, Arial, sans-serif;
+
+// colors
+$color_white: #fff;
+$color_black: #000;
+$color_main: #FABB3A;
+$color_secondary: #2AC0CC;
+
+
+
+$fs_base: 16px;
+$lh_base: 30px;
+
+
+// breakpoints
+$breakpoints: (
+    xxxsmall: 375px,
+    xxsmall: 500px,
+    xsmall: 599px,
+    small: 767px,
+    medium: 884px,
+    large: 999px,
+    xlarge: 1199px,
+    xxlarge: 1299px,
+    xxxlarge: 1399px
+);

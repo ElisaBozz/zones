@@ -1,0 +1,34 @@
+.bozz-c-Heading {
+
+    &-h1, &-h2, &-h3, &-h4 {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $color_white;
+        background: $color_main;
+        padding: 10px 20px;
+        display: inline-block;
+        margin: 10px auto;
+
+
+        &.color_secondary {
+            background-color: $color_secondary;
+        }
+    }
+
+    &-h1 {
+        @include fs(35px, 42px)
+    }
+
+    
+    &-h2 {
+        @include fs(30px, 36px)
+    }
+    
+    &-h3 {
+        @include fs(24px, 30px)
+    }
+
+    &-h4 {
+        @include fs(16px, 22px)
+    }
+}

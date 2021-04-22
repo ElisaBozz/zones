@@ -1,0 +1,257 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Light.woff2") format("woff2"), url("../fonts/Montserrat-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Regular.woff2") format("woff2"), url("../fonts/Montserrat-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Bold.woff2") format("woff2"), url("../fonts/Montserrat-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, ul, ol {
+  margin: 0;
+}
+
+ul, ol {
+  padding-left: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=number],
+input[type=tel],
+input[type=url],
+input[type=search],
+input[type=file],
+textarea,
+select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  outline: 0;
+}
+
+.bozz-u-hspace {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.bozz-u-wrapper {
+  max-width: 900px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bozz-c-Btn {
+  display: inline-block;
+  background-color: #2AC0CC;
+  padding: 10px 20px 9px;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.375;
+  text-transform: uppercase;
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+.bozz-c-Fields {
+  width: 100%;
+  position: relative;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+.bozz-c-Fields-label {
+  display: inline-block;
+  color: #fff;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  background-color: #2AC0CC;
+  padding: 3px 10px;
+  position: absolute;
+  top: -11px;
+  left: 22px;
+  font-weight: bold;
+}
+.bozz-c-Fields input, .bozz-c-Fields select, .bozz-c-Fields textarea {
+  display: block;
+  border: solid 2px rgba(42, 192, 204, 0.2);
+  padding: 17px 22px 10px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.375;
+  width: 100%;
+  color: #2AC0CC;
+  font-family: Montserrat, Arial, sans-serif;
+}
+.bozz-c-Fields input:focus, .bozz-c-Fields select:focus, .bozz-c-Fields textarea:focus {
+  border: solid 2px #2ac0cc;
+}
+
+.bozz-c-Heading-h1, .bozz-c-Heading-h2, .bozz-c-Heading-h3, .bozz-c-Heading-h4 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  background: #FABB3A;
+  padding: 10px 20px;
+  display: inline-block;
+  margin: 10px auto;
+}
+.bozz-c-Heading-h1.color_secondary, .bozz-c-Heading-h2.color_secondary, .bozz-c-Heading-h3.color_secondary, .bozz-c-Heading-h4.color_secondary {
+  background-color: #2AC0CC;
+}
+.bozz-c-Heading-h1 {
+  font-size: 35px;
+  font-size: 2.1875rem;
+  line-height: 1.2;
+}
+.bozz-c-Heading-h2 {
+  font-size: 30px;
+  font-size: 1.875rem;
+  line-height: 1.2;
+}
+.bozz-c-Heading-h3 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+.bozz-c-Heading-h4 {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.375;
+}
+
+.bozz-c-CreateZone {
+  margin-top: 90px;
+}
+.bozz-c-CreateZone form {
+  max-width: 500px;
+  margin: 40px auto;
+}
+.bozz-c-CreateZone-comn {
+  overflow: hidden;
+  height: 0;
+}
+.bozz-c-CreateZone-comn-title {
+  margin-bottom: 20px;
+}
+.bozz-c-CreateZone-btnNext.showNextSection {
+  display: none;
+}
+.bozz-c-CreateZone-btnNext.showNextSection + .bozz-c-CreateZone-comn {
+  height: auto;
+  overflow: inherit;
+}
+
+.bozz-c-CreatedCommune {
+  margin-top: 50px;
+}
+.bozz-c-CreatedCommune-imgList {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.bozz-c-CreatedCommune-imgList-item {
+  max-width: calc(100% / 5 - ((10px * 5) / 4));
+  width: 100%;
+}
+.bozz-c-CreatedCommune-imgList-item + .bozz-c-CreatedCommune-imgList-item {
+  margin-left: 10px;
+}
+.bozz-c-CreatedCommune-imgList-item img {
+  width: 100%;
+  height: auto;
+}
+
+.bozz-c-Section {
+  margin-top: 60px;
+}
+
+.bozz-c-ZoneList-list + .bozz-c-ZoneList-list {
+  margin-top: 40px;
+}
+
+.bozz-c-ZoneItem-imgList {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.bozz-c-ZoneItem-imgList-item {
+  max-width: calc(100% / 5 - ((10px * 5) / 4));
+  width: 100%;
+}
+.bozz-c-ZoneItem-imgList-item + .bozz-c-ZoneItem-imgList-item {
+  margin-left: 10px;
+}
+.bozz-c-ZoneItem-imgList-item img {
+  width: 100%;
+  height: auto;
+}
+
+.bozz-u-txt-uppercase {
+  text-transform: uppercase;
+}
+
+.bozz-u-txt-center {
+  text-align: center;
+}
+
+.bozz-u-txt-left {
+  text-align: left;
+}
+
+.bozz-u-txt-right {
+  text-align: right;
+}
+
+.bozz-u-txt-bold {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=style.css.map */

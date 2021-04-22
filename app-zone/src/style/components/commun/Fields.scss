@@ -1,0 +1,34 @@
+.bozz-c-Fields {
+    width: 100%;
+    position: relative;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    
+    
+    &-label {
+        display: inline-block;
+        color: $color_white;
+        @include fs(14px, 16px);
+        background-color: $color_secondary;
+        padding: 3px 10px;
+        position: absolute;
+        top: -11px;
+        left: 22px;
+        font-weight: bold;
+    }
+    
+    input, select, textarea {
+        display: block;
+        border: solid 2px rgba($color_secondary, 0.2);
+        padding: 17px 22px 10px;
+        border-radius: 30px;
+        @include fs(16px, 22px);
+        width: 100%;
+        color: $color_secondary;
+        font-family: $font_family_base;
+
+        &:focus {
+            border: solid 2px rgba($color_secondary, 1);
+        }
+    }
+}
