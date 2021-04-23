@@ -1,20 +1,46 @@
 .bozz-c-CreateZone {
+    padding-bottom: 40px;
 
     margin-top: 90px;
     
 
-    form {
+    &-form {
         max-width: 500px;
         margin: 40px auto;
     }
 
+    &-title {
+        margin-top: 20px;
+    }
     &-comn {
         overflow: hidden;
         height: 0;
 
 
-        &-title {
-            margin-bottom: 20px;
+
+        &-list {
+
+            &.hidden {
+                display: none
+            }
+        }
+
+        &-item {
+
+            @include fs(14px,20px);
+            padding: 5px 10px;
+            border: solid 1px $color_secondary;
+            color: $color_secondary;
+            text-align: left;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba($color_secondary, 0.2);
+            }
+
+            & + & {
+                border-top: 0;
+            }
         }
     }
 
@@ -25,8 +51,14 @@
             & + .bozz-c-CreateZone-comn {
                 height: auto;
                 overflow: inherit;
+
             }
         }
     }
-    
+
+    &-footer {
+        margin-top: 30px;
+    }
+
+
 }

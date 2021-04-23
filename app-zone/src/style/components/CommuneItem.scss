@@ -1,0 +1,61 @@
+.bozz-c-CommuneItem {
+    
+    &-inner {
+        @include flex();
+        @include align-items(center);
+        @include flex-wrap(wrap);
+
+    }
+
+
+    padding: 30px 0;
+
+    &:nth-child(odd) {
+        background-color: rgba($color_main, 0.1);
+    }
+
+    &-title {
+        width: 100%
+    }
+
+    &-remove {
+        background-color: $color_danger;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        margin-left: auto;
+        span {
+
+            @include rotate(45deg);
+            display: block;
+        }
+
+        svg {
+            display: block;
+            @include center-abs-xy();
+        }
+    }
+
+    
+    &-imgList {
+        margin: 20px 0 30px;
+        @include flex();
+        @include justify-content(space-between);
+        width: calc( 100% - 60px);
+
+        &-item {
+
+            max-width: calc(100% / 5 - ((10px * 5) / 4));
+            width: 100%;
+
+            & + & {
+                margin-left: 10px;
+            }   
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}

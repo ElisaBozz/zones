@@ -1,29 +1,63 @@
 import React, { Component } from 'react';
+import CommuneItem from './CommuneItem';
+
+class ZoneItem extends Component {
 
 
-const ZoneItem = (props) => {
+
+    removeZone = (e) => {
+        this.props.removeZone(e);
+    }
+
+    removeCommune = (e) => {
+        let parentId = e.target.parentNode.parentNode.id;
+        const newComn = this.props.communes.splice(parentId, 1);
+
+        this.setState({
+            communes: newComn
+        })
+    }
 
 
-    let imgTab = props.image;
+    render() {
+        const citys = this.props.communes;
 
-    return (
+        return (
+            <div className="bozz-c-ZoneList-inner">
+
+                <div className="bozz-u-hspace">
+                <div className="bozz-c-ZoneList-head bozz-u-wrapper bozz-u-txt-left">
+                    <h3 className="bozz-c-ZoneList-title bozz-c-Heading-h2 color_secondary">{this.props.name}</h3>
+
+                    <div className="bozz-c-ZoneList-action">
+                        <button type="button" className="bozz-c-Btn secondary bozz-c-ZoneList-modify small" id={this.props.id}>Modifier</button>
+                        <button type="button" className="bozz-c-Btn danger small" onClick={this.removeZone} id={this.props.id}>Supprimer</button>
+                    </div>
+                </div>
+                </div>
 
 
-        <li className="bozz-c-ZoneItem">
-            <p className="bozz-c-ZoneItem-title bozz-c-Heading-h4">{props.name}</p>
-            <ul className="bozz-c-ZoneItem-imgList">
-                 {imgTab.map((data, key) => {
+                <ul className="bozz-c-ZoneList-list  bozz-u-txt-left">
+                    {citys.map((data) => {
 
-                    return (
-                        <li key={key} className="bozz-c-ZoneItem-imgList-item">
-                            <img src={data.url} alt={data.name} className="bozz-c-ZoneItem-imgList-item-img"/>
-                        </li>
-                    )
-                })} 
+                        return (
+                            <CommuneItem
+                                key={data.id}
+                                id={data.id}
+                                image={data.images}
+                                name={data.name}
+                                removeCommune={this.removeCommune}
+                            />
+                        )
+                    })}
+                </ul>
 
-            </ul>
-        </li>
-    )
+            </div>
+
+        )
+    }
+
+
 }
 
 export default ZoneItem

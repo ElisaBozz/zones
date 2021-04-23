@@ -1,6 +1,13 @@
-.bozz-c-ZoneItem {
+.bozz-c-SingleCommune {
 
-    
+    margin-top: 30px;
+    padding-top: 20px;
+
+    & + & {
+        margin-top: 20px;
+        border-top: solid 1px $color_border;
+    }
+
     &-imgList {
         @include flex();
         @include justify-content(space-between);

@@ -1,3 +1,9 @@
 .bozz-c-Section {
     margin-top: 60px;
+
+    & + & {
+
+        padding-top: 60px;
+        border-top:  solid 1px $color_border;
+    }
 }

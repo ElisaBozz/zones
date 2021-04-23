@@ -1,4 +1,6 @@
 .bozz-c-ZoneList {
+    margin-top: 60px;
+
 
     &-list {
         
@@ -6,5 +8,28 @@
         & + & {
             margin-top: 40px;
         }
+    }
+
+    &-head {
+        @include flex();
+        @include justify-content(space-between);
+        @include align-items(center);
+        margin-bottom: 20px;
+    }
+
+    &-action {
+        margin-left: auto;
+        text-align:right;
+        max-width: 120px;
+
+    }
+
+    &-title {
+        margin-right: auto;
+        margin-left: 0;
+    }
+
+    &-modify {
+        margin-bottom: 10px;
     }
 }
