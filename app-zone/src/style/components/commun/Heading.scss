@@ -31,4 +31,21 @@
     &-h4 {
         @include fs(16px, 22px)
     }
+
+    @include mq-to(small) {
+        &-h1 {
+            @include fs(24px, 30px)
+        }
+
+        &-h2 {
+            @include fs(20px, 22px)
+        }
+
+        &-h3 {
+            @include fs(16px, 22px)
+        }
+        &-h {
+            @include fs(14px, 22px)
+        }
+    }
 }

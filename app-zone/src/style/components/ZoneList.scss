@@ -2,13 +2,16 @@
     margin-top: 60px;
 
 
-    &-list {
+
+        &-item {
+            padding: 40px 0;
+            
+            &:nth-child(odd) {
+                background-color: rgba($color_main, 0.1);
+            }
+        }
         
 
-        & + & {
-            margin-top: 40px;
-        }
-    }
 
     &-head {
         @include flex();
@@ -31,5 +34,23 @@
 
     &-modify {
         margin-bottom: 10px;
+    }
+
+    @include mq-to(small) {
+        &-head {
+            @include flex-direction(column);
+            margin-bottom: 0;
+        }
+
+        &-action {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+    
+        &-title {
+            margin-right: auto;
+            margin-left: auto;
+        }
     }
 }

@@ -9,16 +9,20 @@ class ZoneItem extends Component {
         this.props.removeZone(e);
     }
 
+    
+
+    modifyZone = (e) => {
+        this.props.modifyZone(e);
+    }
+
     removeCommune = (e) => {
-        let parentId = e.target.parentNode.parentNode.id;
+        let parentId = e.target.parentNode.parentNode.id +1;
         const newComn = this.props.communes.splice(parentId, 1);
 
         this.setState({
             communes: newComn
         })
     }
-
-
     render() {
         const citys = this.props.communes;
 
@@ -30,7 +34,7 @@ class ZoneItem extends Component {
                     <h3 className="bozz-c-ZoneList-title bozz-c-Heading-h2 color_secondary">{this.props.name}</h3>
 
                     <div className="bozz-c-ZoneList-action">
-                        <button type="button" className="bozz-c-Btn secondary bozz-c-ZoneList-modify small" id={this.props.id}>Modifier</button>
+                        <button type="button" className="bozz-c-Btn secondary bozz-c-ZoneList-modify small" onClick={this.modifyZone} id={this.props.id}>Modifier</button>
                         <button type="button" className="bozz-c-Btn danger small" onClick={this.removeZone} id={this.props.id}>Supprimer</button>
                     </div>
                 </div>

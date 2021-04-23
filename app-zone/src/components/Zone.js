@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
+import AdminZone from './AdminZone';
 
 
-
-import CreateSingleCommune from './CreateSingleCommune'
 import ZonesList from './ZonesList';
 
 
@@ -11,6 +10,7 @@ class Zone extends Component {
 
     state = {
         title: 'Créer une zone',
+        isEdit: 'no',
         selectCommune: '',
         inputValue: '',
         communesList: [],
@@ -50,7 +50,6 @@ class Zone extends Component {
         let communes = this.state.tempZone.communes
         let zonesNb = this.state.zones.length
 
-        console.log(zonesNb)
         communes.push({
             id: communes.length,
             name: this.state.selectCommune,
@@ -85,20 +84,34 @@ class Zone extends Component {
             tempZone: {
                 id: '',
                 name: '',
-                communes: [
-                    {
-                        id: '',
-                        name: '',
-                        images: [
-                            {
-                                id: '',
-                                url: ''
-                            }
-                        ]
-                    }
-                ]
+                communes: []
             }
         })
+        // todo function pour virer le select et rajouter le bouton
+    }
+
+    modifyZoneItem = () => {
+
+        let zones = this.state.zones
+        // let oldZone = this.state.tempZone
+        // let id = this.state.tempZone.id
+    
+
+        // zones.splice( id, 1, oldZone )
+
+        this.setState({
+            zones: zones,
+            title: 'Créer une nouvelle zone',
+            selectCommune: '',
+            inputValue: '',
+            tempZone: {
+                id: '',
+                name: '',
+                communes: []
+            }
+        })
+
+        console.log(this.state)
     }
 
     showNewSection = (e) => {
@@ -131,6 +144,7 @@ class Zone extends Component {
         e.target.offsetParent.lastChild.classList.add('hidden')
     }
 
+
     randomImg = (e) => {
         var imgTableau = []
         let url = 'https://picsum.photos/180/180?random='
@@ -154,12 +168,20 @@ class Zone extends Component {
     }
 
 
-    removeCommune = (e) => {
+    modifyZone = (e) => {
+        let id = e.target.id;
+        let thisZone = this.state.zones[id]
+        
+        this.setState({
+            tempZone: thisZone,
+            title: 'Modifier la zone',
+            inputValue:this.state.zones[id].name,
+        })
     }
 
     removeZone = (e) => {
-        let parentId = e.target.id + 1;
-        const newZone = this.state.zones.splice(parentId, 1);
+        let id = e.target.id +1;
+        const newZone = this.state.zones.splice(id, 1);
 
         this.setState({
             zones: newZone
@@ -168,15 +190,10 @@ class Zone extends Component {
 
     render() {
 
-        const communesList = this.state.communesList
+
         const myZones = this.state.zones
-        const myCommunes = this.state.tempZone.communes
-        let afficheSection = false
         let afficheSectionZone = false
 
-        if (myCommunes.length > 0) {
-            afficheSection = true
-        }
         if (myZones.length > 0) {
             afficheSectionZone = true
         }
@@ -188,75 +205,26 @@ class Zone extends Component {
                         <div className="bozz-u-wrapper">
 
                             <div className="bozz-c-CreateZone-inner  bozz-u-txt-center">
-
+                            
+      
                                 <h2 className="bozz-c-CreateZone-title bozz-c-Heading-h1">{this.state.title}</h2>
+                                <AdminZone
 
-                                <div className="bozz-c-CreateZone-form">
-                                    <div className="bozz-c-Fields">
-                                        <label className="bozz-c-Fields-label">Nom de la Zone</label>
-                                        <input type="text" value={this.state.inputValue} onChange={this.handleName} />
-                                    </div>
+                                    inputValue={this.state.inputValue}
+                                    selectCommune={this.state.selectCommune}
+                                    communesList={this.state.communesList}
+                                    tempZone={this.state.tempZone}
+                                    zones={this.state.zones}
+                                    title={this.state.title}
 
-                                    <button type="button" className="bozz-c-Btn bozz-c-CreateZone-btnNext" onClick={this.showNewSection}>Etape suivante</button>
-
-                                    <div className="bozz-c-CreateZone-comn">
-
-
-                                        <div className="bozz-c-Fields">
-                                            <label className="bozz-c-Fields-label">Sélectionnez une commune</label>
-                                            <input type="text" value={this.state.selectCommune} onChange={this.handleCommune} />
-                                            <ul className="bozz-c-CreateZone-comn-list">
-                                                {communesList.map((item, key) => (
-
-                                                    <li className="bozz-c-CreateZone-comn-item" key={key} onClick={this.selectedCommune}>
-                                                        {item.nom}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-
-                                        <button type="button" className="bozz-c-Btn" onClick={this.addCommunes}>Ajouter une communes</button>
-
-
-                                        {
-                                            this.state.inputValue ?
-                                                <h3 className="bozz-c-CreateZone-title">
-                                                    <span className="bozz-c-CreateZone-title bozz-c-Heading-h3">
-                                                        {this.state.inputValue}
-                                                    </span>
-                                                </h3>
-                                                : ''
-                                        }
-                                        <div className="bozz-c-CreatedCommune">
-                                            {myCommunes.map((item) => (
-                                                <div key={item.id} id={item.id} className="bozz-c-SingleCommune">
-                                                    {item.name ? (
-                                                        <CreateSingleCommune
-                                                            title={item.name}
-                                                            img={item.images}
-
-                                                        />
-                                                    ) : ('')
-                                                    }
-                                                </div>
-                                            ))}
-
-                                            {afficheSection === true ?
-                                                <button className="bozz-c-Btn bozz-c-CreateZone-footer" type="button" onClick={this.addZones}>Enregistrer ma zone</button>
-                                                : (
-                                                    <p className="bozz-c-CreateZone-footer">
-                                                        Vous n'avez pas renseignez de communes
-                                                    </p>
-                                                )
-                                            }
-                                        </div>
-
-                                    </div>
-
-
-
-
-                                </div>
+                                    handleName={this.handleName}
+                                    showNewSection={this.showNewSection}
+                                    handleCommune={this.handleCommune}
+                                    addCommunes={this.addCommunes}
+                                    addZones={this.addZones}
+                                    modifyZoneItem={this.modifyZoneItem}
+                                    selectedCommune={this.selectedCommune}
+                                />
 
                             </div>
 
@@ -266,8 +234,10 @@ class Zone extends Component {
 
                 {afficheSectionZone === true ? (
                     <ZonesList
-                        zones={this.state.zones}
                         removeZone={this.removeZone}
+                        modifyZone={this.modifyZone}
+                        zones={this.state.zones}
+
                     />
                 ) : ('')}
 

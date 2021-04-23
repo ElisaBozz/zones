@@ -60,5 +60,9 @@
         margin-top: 30px;
     }
 
+    @include mq-to(small) {
+        margin-top: 0;
+    }
+
 
 }

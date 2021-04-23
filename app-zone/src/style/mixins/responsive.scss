@@ -1,0 +1,29 @@
+@mixin mq-from($bp) {
+    @if map-has-key($breakpoints, $bp) {
+        @media screen and (min-width: #{map-get($breakpoints, $bp)+1}) {
+            @content;
+        }
+    } @else {
+        @error 'Breakpoint `#{$bp}` not found.';
+    }
+}
+
+@mixin mq-to($bp) {
+    @if map-has-key($breakpoints, $bp) {
+        @media screen and (max-width: #{map-get($breakpoints, $bp)}) {
+            @content;
+        }
+    } @else {
+        @error 'Breakpoint `#{$bp}` not found.';
+    }
+}
+
+@mixin mq-from-to($bpfrom, $bpto) {
+    @if map-has-key($breakpoints, $bpfrom) and map-has-key($breakpoints, $bpto) {
+        @media screen and (min-width: #{map-get($breakpoints, $bpfrom)+1}) and (max-width: #{map-get($breakpoints, $bpto)}) {
+            @content;
+        }
+    } @else {
+        @error 'Breakpoint `#{$bpfrom}` and/or `#{$bpto}` not found.';
+    }
+}

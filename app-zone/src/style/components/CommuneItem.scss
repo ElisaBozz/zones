@@ -7,15 +7,17 @@
 
     }
 
+    & + & {
+        border-top: solid 1px $color_border;
+    }
+
 
     padding: 30px 0;
 
-    &:nth-child(odd) {
-        background-color: rgba($color_main, 0.1);
-    }
 
     &-title {
-        width: 100%
+        width: 100%;
+        text-align: center;
     }
 
     &-remove {
@@ -57,5 +59,34 @@
                 height: auto;
             }
         }
+    }
+
+    @include mq-to(small) {
+        position: relative;
+        &-imgList {
+        
+            @include flex-wrap(wrap);
+            width: 100%;
+
+            &-item {
+
+                max-width: calc(50% - 5px);
+                width: 100%;
+                margin-bottom: 5px;
+    
+                & + & {
+                    margin-left: 0;
+                }   
+    
+            }
+        }
+
+    &-remove {
+        position: absolute;
+        top: 30px;
+        right: 10px;
+    }
+
+
     }
 }
