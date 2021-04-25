@@ -61,6 +61,7 @@ class Zone extends Component {
             {
                 id: zonesNb,
                 name: this.state.inputValue,
+                modalOpen: false,
                 communes: communes
             },
             selectCommune: ''
@@ -172,6 +173,8 @@ class Zone extends Component {
         let id = e.target.id;
         let thisZone = this.state.zones[id]
         
+
+        
         this.setState({
             tempZone: thisZone,
             title: 'Modifier la zone',
@@ -179,14 +182,17 @@ class Zone extends Component {
         })
     }
 
-    removeZone = (e) => {
-        let id = e.target.id +1;
-        const newZone = this.state.zones.splice(id, 1);
+    // removeZone = (e) => {
+    //     var id = e.target.id;
+    
+    //     let zones = this.state.zones;
 
-        this.setState({
-            zones: newZone
-        })
-    }
+    //     const newZones = zones.splice(id, 1);
+
+    //     this.setState({
+    //         zones: newZones
+    //     })
+    // }
 
     render() {
 
@@ -222,6 +228,7 @@ class Zone extends Component {
                                     handleCommune={this.handleCommune}
                                     addCommunes={this.addCommunes}
                                     addZones={this.addZones}
+                                    // removeZone={this.removeZone}
                                     modifyZoneItem={this.modifyZoneItem}
                                     selectedCommune={this.selectedCommune}
                                 />

@@ -1,0 +1,26 @@
+.bozz-c-Modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba($color_black, 0.3);
+
+    &-inner {
+        max-width: 600px;
+        width: 100%;
+        padding: 30px;
+        background-color: $color_white;
+        position: fixed;
+        top: 30%;
+        left: calc(50% - 200px);
+
+    }
+
+    &-btn {
+        button {
+                margin: 10px 10px 0;
+        }
+    }
+    
+}

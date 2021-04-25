@@ -25,6 +25,7 @@ class AdminZone extends Component {
     addZones = (e) => {
         this.props.addZones(e)
     }
+    
     modifyZoneItem = (e) => {
         this.props.modifyZoneItem(e)
     }
@@ -48,9 +49,13 @@ class AdminZone extends Component {
         const communesList = this.props.communesList
         const myCommunes = this.props.tempZone.communes
         let afficheSection = false
+        let hideBtn = false
 
         if (myCommunes && myCommunes.length > 0) {
             afficheSection = true
+        }
+        if (myCommunes && myCommunes.length <= 2) {
+            hideBtn = true
         }
 
         return (
@@ -77,10 +82,10 @@ class AdminZone extends Component {
                             ))}
                         </ul>
                     </div>
-
+                    {hideBtn === true ?
                         <button type="button" className="bozz-c-Btn" onClick={this.addCommunes}>Ajouter la communes</button>
-                   
 
+                        : ''}
 
                     {
                         this.props.inputValue ?
@@ -93,38 +98,38 @@ class AdminZone extends Component {
                     }
 
                     {myCommunes ?
-                    <div className="bozz-c-CreatedCommune">
-                        {myCommunes.map((item) => (
-                            <div key={item.id} id={item.id} className="bozz-c-SingleCommune">
-                                {item.name ? (
-                                    <CreateSingleCommune
-                                        title={item.name}
-                                        img={item.images}
+                        <div className="bozz-c-CreatedCommune">
+                            {myCommunes.map((item) => (
+                                <div key={item.id} id={item.id} className="bozz-c-SingleCommune">
+                                    {item.name ? (
+                                        <CreateSingleCommune
+                                            title={item.name}
+                                            img={item.images}
 
-                                    />
-                                ) : ('')
-                                }
-                            </div>
-                        ))}
+                                        />
+                                    ) : ('')
+                                    }
+                                </div>
+                            ))}
 
-                        {afficheSection === true ? (
+                            {afficheSection === true ? (
 
-                            this.props.title === 'Modifier la zone' ? (
-                                <button className="bozz-c-Btn bozz-c-CreateZone-footer" type="button" onClick={this.modifyZoneItem}>Modifier ma zone</button>
-                            ) : (
-                                <button className="bozz-c-Btn bozz-c-CreateZone-footer" type="button" onClick={this.addZones}>Enregistrer ma zone</button>
+                                this.props.title === 'Modifier la zone' ? (
+                                    <button className="bozz-c-Btn bozz-c-CreateZone-footer" type="button" onClick={this.modifyZoneItem}>Modifier ma zone</button>
+                                ) : (
+                                    <button className="bozz-c-Btn bozz-c-CreateZone-footer" type="button" onClick={this.addZones}>Enregistrer ma zone</button>
+                                )
+
                             )
 
-                        )
-
-                            : (
-                                <p className="bozz-c-CreateZone-footer">
-                                    Vous n'avez pas renseignez de communes
-                                </p>
-                            )
-                        }
-                    </div>
-                    : ''}
+                                : (
+                                    <p className="bozz-c-CreateZone-footer">
+                                        Vous n'avez pas renseignez de communes
+                                    </p>
+                                )
+                            }
+                        </div>
+                        : ''}
                 </div>
 
             </div>

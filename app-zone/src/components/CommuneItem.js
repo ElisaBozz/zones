@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 
 
 class CommuneItem extends Component {
@@ -35,7 +35,7 @@ class CommuneItem extends Component {
 
                             </ul>
 
-                            <button type="button" className="bozz-c-CommuneItem-remove" onClick={this.removeCommune}>
+                            <button type="button" className="bozz-c-CommuneItem-remove" id={this.props.id} onClick={this.removeCommune}>
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><g><g><path fill="#ffffff" d="M13.879 6.38H8.62V1.12a1.121 1.121 0 0 0-2.242 0v5.26H1.121C.503 6.38 0 6.881 0 7.5c0 .618.503 1.12 1.12 1.12h5.26v5.259a1.122 1.122 0 0 0 2.24 0V8.62h5.259C14.497 8.62 15 8.118 15 7.5c0-.618-.503-1.12-1.121-1.12" /></g></g></svg>
                                 </span>
